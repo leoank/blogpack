@@ -3,8 +3,8 @@ export const introSectionData = {
   position: "Research associate, Broad Institute of MIT and Harvard",
   contact: [
     {
-      link: "leoank@gmail.com",
-      text: "leoank@gmail.com",
+      link: "mailto:leoank98@gmail.com",
+      text: "leoank98@gmail.com",
     },
   ],
   aboutMe: `
