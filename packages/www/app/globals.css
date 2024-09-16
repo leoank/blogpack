@@ -8,3 +8,9 @@
     text-wrap: balance;
   }
 }
+
+
+::selection {
+  color: #111;
+  background: #E6E6FA;
+}
