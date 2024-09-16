@@ -6,10 +6,10 @@ export function ExperienceSection() {
       <h2 className="font-light text-2xl mb-4 md:text-5xl">
         {experienceSectionData.title}
       </h2>
-      <p className="max-w-lg">{experienceSectionData.description}</p>
+      <p className="">{experienceSectionData.description}</p>
 
       <div className="flex justify-end mt-8">
-        <ul className="flex-1 space-y-3 max-w-3xl">
+        <ul className="flex-1 space-y-3">
           {experienceSectionData.experiences.map((experience) => (
             <li
               key={experience.id}

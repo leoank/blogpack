@@ -15,7 +15,7 @@ export function ContainerWithWrapper(props: TContainerWithWrapperProps) {
       {...rest}
     >
       <div
-        className={cx("container flex-1", wrapperClassName)}
+        className={cx("container flex-1 max-w-3xl", wrapperClassName)}
         {...wrapperRest}
       >
         {children}

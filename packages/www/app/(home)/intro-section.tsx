@@ -22,7 +22,7 @@ export function IntroSection() {
       </div>
       <div className="flex justify-end">
         <div
-          className="flex-1 max-w-3xl space-y-5"
+          className="flex-1 space-y-5"
           dangerouslySetInnerHTML={{ __html: introSectionData.aboutMe }}
         />
       </div>

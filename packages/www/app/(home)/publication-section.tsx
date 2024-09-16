@@ -8,7 +8,7 @@ export function PublicationSection() {
       </h2>
 
       <div className="flex justify-end mt-8">
-        <ul className="flex-1 space-y-3 max-w-3xl">
+        <ul className="flex-1 space-y-3">
           {publicationSectionData.publications.map((publication) => (
             <li
               key={publication.id}
