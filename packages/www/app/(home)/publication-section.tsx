@@ -1,3 +1,4 @@
+import { Anchor } from "@/components/anchor";
 import { publicationSectionData } from "@/data/publication-section";
 
 export function PublicationSection() {
@@ -10,22 +11,15 @@ export function PublicationSection() {
       <div className="flex justify-end mt-8">
         <ul className="flex-1 space-y-3">
           {publicationSectionData.publications.map((publication) => (
-            <li
-              key={publication.id}
-              className="py-4 border-b border-b-gray-300 space-y-2"
-            >
+            <li key={publication.id} className="py-4 border-b  space-y-2">
               <div className="font-bold">{publication.title}</div>
               <div>
                 {publication.authors.map((author, idx) => (
                   <>
                     {author.link ? (
-                      <a
-                        className="underline"
-                        href={author.link}
-                        key={author.link}
-                      >
+                      <Anchor href={author.link} key={author.link}>
                         {author.text}
-                      </a>
+                      </Anchor>
                     ) : (
                       <span>{author.text}</span>
                     )}
@@ -35,15 +29,15 @@ export function PublicationSection() {
                   </>
                 ))}
               </div>
-              <p className="text-[#555]">{publication.description}</p>
+              <p className="text-secondary">{publication.description}</p>
               {publication.link && (
-                <a
+                <Anchor
                   target="_blank"
-                  className="text-blue-700 underline mt-2"
+                  className="mt-2"
                   href={publication.link}
                 >
                   {publication.link}
-                </a>
+                </Anchor>
               )}
             </li>
           ))}

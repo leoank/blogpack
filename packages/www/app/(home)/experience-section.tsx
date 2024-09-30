@@ -11,15 +11,12 @@ export function ExperienceSection() {
       <div className="flex justify-end mt-8">
         <ul className="flex-1 space-y-3">
           {experienceSectionData.experiences.map((experience) => (
-            <li
-              key={experience.id}
-              className="py-4 space-y-2 border-b border-b-gray-300"
-            >
+            <li key={experience.id} className="py-4 space-y-2 border-b">
               <div className="font-bold">{experience.company}</div>
               <p>
                 {experience.position} - {experience.period}
               </p>
-              <p className="text-[#555]">{experience.about}</p>
+              <p className="text-secondary">{experience.about}</p>
             </li>
           ))}
         </ul>

@@ -9,7 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-open-sans)"],
+        mono: ["var(--font-space-mono)"],
+      },
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+      },
+      textColor: {
+        link: "var(--link)",
+        secondary: "var(--secondary-text)",
+      },
+      borderColor: {
+        DEFAULT: "var(--border-color)",
       },
     },
   },

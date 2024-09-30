@@ -1,10 +1,9 @@
-import { Dots } from "@/components/dots";
+import { Anchor } from "@/components/anchor";
 import { introSectionData } from "@/data/intro-section";
 
 export function IntroSection() {
   return (
-    <section className="relative pt-32">
-      <Dots columns={15} rows={10} className="absolute top-0 right-0" />
+    <section className="relative pt-16">
       <h1 className="font-light text-4xl mb-4 md:text-7xl">
         {introSectionData.name}
       </h1>
@@ -13,9 +12,9 @@ export function IntroSection() {
         <ul>
           {introSectionData.contact.map((contact) => (
             <li key={contact.link}>
-              <a href={contact.link} target="_blank">
+              <Anchor href={contact.link} target="_blank">
                 {contact.text}
-              </a>
+              </Anchor>
             </li>
           ))}
         </ul>

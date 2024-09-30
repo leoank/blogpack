@@ -10,7 +10,20 @@
 }
 
 
+:root {
+  --background: #030f17;
+  --foreground: #fff;
+
+  /* Text color */
+  --link: #fafafa;
+  --secondary-text: #637c8d;
+
+  /* Border */
+  --border-color: #071f30;
+}
+
 ::selection {
   color: #111;
   background: #E6E6FA;
 }
+

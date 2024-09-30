@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const openSans = Open_Sans({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-open-sans",
+  variable: "--font-space-mono",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -19,9 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} leading-relaxed`}>
+    <html
+      lang="en"
+      className={`${spaceMono.variable} leading-7 bg-background text-foreground`}
+    >
       <link rel="icon" href="favicon.svg" type="image/svg" sizes="32x32" />
-      <body>{children}</body>
+      <body className="font-mono">{children}</body>
     </html>
   );
 }
