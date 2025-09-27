@@ -1,25 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
 
-
-:root {
-  --background: #030f17;
-  --foreground: #fff;
-
-  /* Text color */
-  --link: #fafafa;
-  --secondary-text: #637c8d;
-
-  /* Border */
-  --border-color: #071f30;
+@theme {
+  --font-mono: var(--font-space-mono);
+  --color-background: oklch(0.1605 0.0261 235.85);
+  --color-foreground: #fff;
 }
 
 ::selection {
