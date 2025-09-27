@@ -8,7 +8,7 @@ export function Navbar() {
           className="h-16 w-16"
           height={64}
           width={64}
-          src="/logo.svg"
+          src="/assets/logo.svg"
           alt="A"
         />
       </div>
