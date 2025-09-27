@@ -1,5 +1,5 @@
 export function generateStaticParams() {
-  return [{ slug: "my-first-blog" }];
+  return [{ slug: "welcome" }];
 }
 
 type BlogPostProps = {
@@ -9,9 +9,10 @@ type BlogPostProps = {
 export default async function BlogPost(props: BlogPostProps) {
   const { params } = props;
   const { slug } = await params;
-  const { default: Post } = await import(`./(mdx)/${slug}.mdx`);
-
-  return <Post />;
+  try {
+    const { default: Post } = await import(`./(mdx)/${slug}.mdx`);
+    return <Post />;
+  } catch {
+    return <div>Blog not found!</div>;
+  }
 }
-
-export const dynamicParams = false;
