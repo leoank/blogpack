@@ -1,7 +1,3 @@
-import { Suspense } from "react";
-import { BlogPostContent } from "./content";
-import { PageLoader } from "../../../components/page-loader";
-
 export function generateStaticParams() {
   return [{ slug: "my-first-blog" }];
 }
@@ -13,12 +9,9 @@ type BlogPostProps = {
 export default async function BlogPost(props: BlogPostProps) {
   const { params } = props;
   const { slug } = await params;
+  const { default: Post } = await import(`./(mdx)/${slug}.mdx`);
 
-  return (
-    <Suspense fallback={<PageLoader />}>
-      <BlogPostContent slug={slug} />
-    </Suspense>
-  );
+  return <Post />;
 }
 
 export const dynamicParams = false;
