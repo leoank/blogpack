@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "clsx";
+import clsx from "@/util/clsx";
 
 export type TContainerWithWrapperProps = React.HTMLProps<HTMLDivElement> & {
   wrapperProps?: Omit<React.HTMLProps<HTMLDivElement>, "children">;
@@ -11,11 +11,11 @@ export function ContainerWithWrapper(props: TContainerWithWrapperProps) {
 
   return (
     <div
-      className={cx("flex flex-1 w-screen justify-center", className)}
+      className={clsx("flex flex-1 w-screen justify-center", className)}
       {...rest}
     >
       <div
-        className={cx("container flex-1 max-w-4xl", wrapperClassName)}
+        className={clsx("container flex-1 max-w-4xl", wrapperClassName)}
         {...wrapperRest}
       >
         {children}

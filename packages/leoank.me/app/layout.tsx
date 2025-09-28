@@ -27,7 +27,7 @@ export default function RootLayout({
     >
       <link rel="icon" href="favicon.svg" type="image/svg" sizes="32x32" />
       <body className="font-mono min-h-dvh flex flex-col box-border">
-        <main>{children}</main>
+        <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>

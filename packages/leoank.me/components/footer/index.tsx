@@ -3,14 +3,12 @@ import { socialLinks } from "./data";
 
 export function Footer() {
   return (
-    <footer className="mt-auto pt-16 pb-4 relative">
-      <div
-        style={{ background: "url('/assets/footer-bg.png')" }}
-        className="inset-0 absolute opacity-35"
-      />
+    <footer className="mt-16 pt-16 pb-4 relative">
+      <div className="inset-0 absolute opacity-35 bg-[url('/assets/footer-bg.png')]" />
       <ContainerWithWrapper
         wrapperProps={{
-          className: "px-3 flex items-center justify-between z-10",
+          className:
+            "px-3 flex items-start gap-2 z-10 flex-col md:flex-row md:items-center md:justify-between",
         }}
       >
         <div className="flex items-center gap-2">

@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from "@/util/clsx";
 import React from "react";
 
 export function Anchor(props: React.HTMLProps<HTMLAnchorElement>) {

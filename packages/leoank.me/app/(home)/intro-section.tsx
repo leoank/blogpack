@@ -2,7 +2,7 @@ import { Anchor } from "@/components/anchor";
 
 export function IntroSection() {
   return (
-    <section>
+    <section className="py-4 mb-8">
       <p>
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of

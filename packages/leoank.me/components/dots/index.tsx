@@ -1,4 +1,4 @@
-import cx from "clsx";
+import clsx from "@/util/clsx";
 import React from "react";
 
 export type TDotsProps = Omit<React.HTMLProps<HTMLDivElement>, "children"> & {
@@ -31,7 +31,7 @@ export function Dots(props: TDotsProps) {
   } = props;
 
   return (
-    <div style={{ gap }} className={cx("flex flex-col", className)} {...rest}>
+    <div style={{ gap }} className={clsx("flex flex-col", className)} {...rest}>
       {Array.from({ length: rows }).map((_, index) => (
         <div key={index} className="flex" style={{ gap }}>
           {Array.from({ length: columns }).map((_, idx) => (
