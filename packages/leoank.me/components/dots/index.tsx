@@ -37,7 +37,7 @@ export function Dots(props: TDotsProps) {
           {Array.from({ length: columns }).map((_, idx) => (
             <div
               key={idx}
-              className="rounded-full bg-[#637c8d]"
+              className="rounded-full bg-gray-800"
               style={{
                 height: `${size}px`,
                 width: `${size}px`,

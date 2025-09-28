@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/footer";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -25,7 +26,10 @@ export default function RootLayout({
       className={`${spaceMono.variable} leading-7 bg-background text-foreground`}
     >
       <link rel="icon" href="favicon.svg" type="image/svg" sizes="32x32" />
-      <body className="font-mono">{children}</body>
+      <body className="font-mono min-h-dvh flex flex-col box-border">
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
