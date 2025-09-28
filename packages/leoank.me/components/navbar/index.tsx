@@ -1,60 +1,54 @@
 import clsx from "@/util/clsx";
 import { LogoWithName } from "../logo-with-name";
-import Link from "next/link";
-import { ContainerWithWrapper } from "../containers/with-wrapper";
+import { NavbarItem, TNavbarItem } from "./item";
+import { BLOG, EXPERIENCE, PUBLICATION } from "@/constants/routes";
 
 export type TNavbarProps = {
   className?: string;
-};
-
-type TNavbarItem = {
-  id: string;
-  href: string;
-  text: string;
+  doesLogoHaveName?: boolean;
 };
 
 const items: TNavbarItem[] = [
   {
     id: "publication",
-    href: "/publication",
+    href: PUBLICATION,
     text: "Publication",
   },
   {
     id: "experience",
-    href: "/experience",
+    href: EXPERIENCE,
     text: "Experience",
   },
   {
     id: "blog",
-    href: "/blog",
+    href: BLOG,
     text: "Blog",
   },
 ];
 
 export function Navbar(props: TNavbarProps) {
-  const { className } = props;
+  const { className, doesLogoHaveName = true } = props;
 
   return (
     <nav
       className={clsx(
-        "rounded-lg border border-gray-800 overflow-hidden hidden justify-between sm:flex",
+        "rounded-lg overflow-hidden justify-between flex border-gray-800 sm:border",
         className
       )}
     >
       <LogoWithName
-        className="pl-4"
+        className="sm:pl-4"
         imageProps={{ className: "size-8 lg:size-8" }}
-        h1Props={{ className: "hidden" }}
+        h1Props={{
+          className: clsx(
+            "hidden text-xl lg:text-xl",
+            doesLogoHaveName && "block"
+          ),
+        }}
       />
-      <div className="flex justify-end">
+      <div className="hidden justify-end sm:flex">
         {items.map((item) => (
-          <Link
-            href={item.href}
-            key={item.id}
-            className="p-4 hover:bg-gray-900"
-          >
-            {item.text}
-          </Link>
+          <NavbarItem key={item.id} item={item} />
         ))}
       </div>
     </nav>
