@@ -6,6 +6,7 @@
   --font-mono: var(--font-space-mono);
   --color-background: oklch(0.1605 0.0261 235.85);
   --color-foreground: #fff;
+  --color-muted: oklch(0.579 0.0428 239.14)
 }
 
 ::selection {

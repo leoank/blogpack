@@ -12,7 +12,7 @@ export default function NonHomeLayout(props: PropsWithChildren) {
         className="flex-1 pt-8 relative"
         wrapperProps={{ className: "px-3 flex flex-col" }}
       >
-        <Navbar className="mt-auto" />
+        <Navbar className="mb-10" />
         <main className="flex-1 flex flex-col py-4">{children}</main>
       </ContainerWithWrapper>
       <Footer />

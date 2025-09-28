@@ -22,7 +22,7 @@ export function NavbarItem(props: TNavbarItemProps) {
     <Link
       href={item.href}
       className={clsx(
-        "p-4 hover:bg-gray-900",
+        "p-4 transition-transform active:scale-95 hover:bg-gray-900",
         pathname.startsWith(item.href) && "bg-gray-900"
       )}
     >
