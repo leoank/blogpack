@@ -1,6 +1,7 @@
 import clsx from "@/util/clsx";
 import { LogoWithName } from "../logo-with-name";
 import Link from "next/link";
+import { ContainerWithWrapper } from "../containers/with-wrapper";
 
 export type TNavbarProps = {
   className?: string;
@@ -41,7 +42,7 @@ export function Navbar(props: TNavbarProps) {
       )}
     >
       <LogoWithName
-        className="pl-2 md:pl-4"
+        className="pl-4"
         imageProps={{ className: "size-8 lg:size-8" }}
         h1Props={{ className: "hidden" }}
       />
@@ -50,7 +51,7 @@ export function Navbar(props: TNavbarProps) {
           <Link
             href={item.href}
             key={item.id}
-            className="p-2 hover:bg-gray-900 md:p-4"
+            className="p-4 hover:bg-gray-900"
           >
             {item.text}
           </Link>
