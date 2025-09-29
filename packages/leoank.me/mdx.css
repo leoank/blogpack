@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+pre {
+  background: oklch(from var(--color-muted) l c h / 0.1);
+  padding: calc(var(--spacing) * 4) calc(var(--spacing) * 8);
+  border-radius: var(--radius-lg);
+  margin: calc(var(--spacing) * 8) 0;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: pre;  
+}
+
+code {
+  display: inline-block;
+  min-width: 100%;      
+}
+
+/* Comments */
+.hljs-comment,
+.hljs-quote {
+  @apply text-gray-500 italic;
+}
+
+.hljs-keyword {
+  @apply text-red-400;
+}
+
+.hljs-title.function_,
+.hljs-title.class_ {
+  @apply text-amber-500;
+}
+
+
+/* Keywords (if, return, async) */
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section {
+  @apply text-purple-400 font-semibold;
+}
+
+/* Strings */
+.hljs-string,
+.hljs-doctag {
+  @apply text-blue-300;
+}
+
+/* Numbers */
+.hljs-number {
+  @apply text-green-600;
+}
+
+/* Functions */
+.hljs-function .hljs-title,
+.hljs-built_in {
+  @apply text-blue-400;
+}
+
+/* Properties / attributes */
+.hljs-attr,
+.hljs-attribute {
+  @apply text-sky-400;
+}
+
+/* Variables */
+.hljs-variable,
+.hljs-template-variable {
+  @apply text-red-400;
+}
+
+/* Class & Types */
+.hljs-class .hljs-title,
+.hljs-type {
+  @apply text-yellow-300;
+}
