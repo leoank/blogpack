@@ -7,7 +7,7 @@ export function Header() {
     <header className="pt-8 pb-4 md:pt-16 lg:pt-24 xl:pt-32 relative">
       <LogoWithName />
       <div className="mt-2">
-        <p>Research associate, Broad Institute of MIT and Harvard</p>
+        <p>Computational Associate II, Broad Institute of MIT and Harvard</p>
         <Anchor href="mailto:leoank98@gmail.com" target="_blank">
           leoank98@gmail.com
         </Anchor>
