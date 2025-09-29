@@ -2,9 +2,90 @@ import { WELCOME_POST } from "../../data"
 
 export const metadata = WELCOME_POST
 
-# My first blog post
+# 006: Understanding Fuzzy Inference Systems 
 
-Hi! This is my first blog post.
+Infusing Imprecise Language into Crisp Outputs.
 
-**bold** this is bold component.
+![Fuzzy Inference System 006](https://miro.medium.com/v2/resize:fit:1050/1*cDhcpr5TIHx986Cb3r96Ng.png)
 
+
+## Introduction
+
+Many, if not most, of our day-to-day decisions involve some degree of uncertainty. As humans, we often don’t classify each of our decisions binarily. Meaning, our decisions cannot be often categorized strictly into either true or false. Rather, most of our decisions only have a partial degree of certainty.
+
+For example, when asked if you would like to have ice-cream right now or not, you often weigh several factors like the time of day, your appetite, whether you want to have ice-cream, how much you like the flavor etc and then come to a decision. Fuzzy logic tries to mimic just that. It doesn’t classify every decision as binary. Rather it generates a value that lies in between.
+
+> Floating-point arithmetic in GPUs exhibits non-associativity, meaning (a+b)+c≠a+(b+c)(a+b)+c=a+(b+c) due to finite precision and rounding errors. This property directly impacts the computation of attention scores and logits in the transformer architecture, where parallel operations across multiple threads can yield different results based on execution order.
+
+While this hypothesis is not entirely wrong, it doesn’t reveal the full picture. For example, even on a GPU, running the same matrix multiplication on the same data repeatedly will always provide bitwise equal results. We’re definitely using floating-point numbers. And our GPU definitely has a lot of concurrency. Why don’t we see nondeterminism in this test?
+
+
+## What is Fuzzy Logic?
+
+Fuzzy logic is a way to model logical reasoning, where the truth of a statement is not binary True or False like classical logic. Rather it represents a degree of truth.
+
+
+## Conceptual Explanation of How Fuzzy Logic Works
+
+### Process Flow
+
+![Figure 1: Process Flow](https://miro.medium.com/v2/resize:fit:585/1*pF-4f-6vfr4lOukn6L3wJQ.png)
+
+
+### Step 1: Fuzzification of crisp inputs
+
+Now, say a friend asks you about the food taste and service quality of the restaurant you just visited recently. You wouldn’t tell them the exact point you put in the scoring card, rather you would just tell them something like “The taste of the food was okay and the service quality was excellent” right? You see how there are two ways to communicate about your experience at the restaurant? One numerically and one linguistically? Well fuzzy inference system wants to mimic just that.
+
+
+### List
+
+Okay, so we need to fuzzify our crisp input of 7/10 on Food Taste, right? The steps are:
+
+1. Define the Fuzzy Sets of each of our Linguistic Variables(“Bad”, “Okay”, “Delicious”) for the input Food Taste. Now what subset of the Universe of Discourse goes into each Fuzzy Set is decided by a domain expert, through related empirical data, and it is also dependent on the context. Suppose the Fuzzy Sets for each of our Linguistic Variables are as below:
+
+![Figure 2: Linguistic Variables and Membership Functions](https://miro.medium.com/v2/resize:fit:1050/1*E9IO2JTqsiJ_1JvyRE21Pw.png)
+
+2. Notice that the x-axis represents the Universe of Discourse, which, as you can recall, is the range of all possible values the input variable can take. And the corresponding y-axis value represents the Degree of Membership of that input.
+
+3. Now if an input falls under two linguistic variables simultaneously as shown in the diagram below, then we just take both the Membership Degrees corresponding with each of the linguistic variables. It will be written as:
+
+
+```python
+A = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
+B = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
+ref = torch.mm(A, B)
+for _ in range(1000):
+    assert (torch.mm(A, B) - ref).abs().max().item() == 0
+```
+
+
+```tsx
+import React from "react";
+import clsx from "@/util/clsx";
+
+export type TContainerWithWrapperProps = React.HTMLProps<HTMLDivElement> & {
+  wrapperProps?: Omit<React.HTMLProps<HTMLDivElement>, "children">;
+};
+
+/**
+ * Container with wrapper
+*/
+export function ContainerWithWrapper(props: TContainerWithWrapperProps) {
+  const { wrapperProps = {}, className, children, ...rest } = props;
+  const { className: wrapperClassName, ...wrapperRest } = wrapperProps;
+
+  return (
+    <div
+      className={clsx("flex flex-1 w-screen justify-center", className)}
+      {...rest}
+    >
+      <div
+        className={clsx("container flex-1 max-w-4xl", wrapperClassName)}
+        {...wrapperRest}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+```
