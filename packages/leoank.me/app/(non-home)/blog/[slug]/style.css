@@ -1,6 +1,35 @@
 @import "tailwindcss";
 
-pre {
+
+/* Typography styles */
+
+.blog-article h1 {
+  @apply text-4xl leading-snug font-bold my-4;
+}
+
+.blog-article h2 {
+  @apply text-2xl leading-normal font-bold my-3;
+}
+
+.blog-article h3 {
+  @apply text-xl leading-normal font-bold my-2;
+}
+
+.blog-article p {
+  @apply text-base leading-normal my-2;
+}
+
+.blog-article blockquote {
+  @apply text-sm ml-3 my-4 pl-2 border-l-4 [&>p]:my-0;
+  color: var(--color-muted);
+  border-left-color: var(--color-muted);
+}
+
+.blog-article ol {
+  @apply list-decimal pl-8 md:pl-10;
+}
+
+.blog-article pre {
   background: oklch(from var(--color-muted) l c h / 0.1);
   padding: calc(var(--spacing) * 4) calc(var(--spacing) * 8);
   border-radius: var(--radius-lg);
@@ -11,66 +40,95 @@ pre {
   white-space: pre;  
 }
 
-code {
+.blog-article code {
   display: inline-block;
   min-width: 100%;      
 }
 
+/* Code */
 /* Comments */
-.hljs-comment,
-.hljs-quote {
+.blog-article .hljs-comment,
+.blog-article .hljs-quote {
   @apply text-gray-500 italic;
 }
 
-.hljs-keyword {
+.blog-article .hljs-keyword {
   @apply text-red-400;
 }
 
-.hljs-title.function_,
+.blog-article .hljs-title.function_,
 .hljs-title.class_ {
   @apply text-amber-500;
 }
 
 
 /* Keywords (if, return, async) */
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section {
+.blog-article .hljs-selector-tag,
+.blog-article .hljs-literal,
+.blog-article .hljs-title,
+.blog-article .hljs-section {
   @apply text-purple-400 font-semibold;
 }
 
 /* Strings */
-.hljs-string,
-.hljs-doctag {
+.blog-article .hljs-string,
+.blog-article .hljs-doctag {
   @apply text-blue-300;
 }
 
 /* Numbers */
-.hljs-number {
+.blog-article .hljs-number {
   @apply text-green-600;
 }
 
 /* Functions */
-.hljs-function .hljs-title,
-.hljs-built_in {
+.blog-article .hljs-function .hljs-title,
+.blog-article .hljs-built_in {
   @apply text-blue-400;
 }
 
 /* Properties / attributes */
-.hljs-attr,
-.hljs-attribute {
+.blog-article .hljs-attr,
+.blog-article .hljs-attribute {
   @apply text-sky-400;
 }
 
 /* Variables */
-.hljs-variable,
-.hljs-template-variable {
+.blog-article .hljs-variable,
+.blog-article .hljs-template-variable {
   @apply text-red-400;
 }
 
 /* Class & Types */
-.hljs-class .hljs-title,
-.hljs-type {
+.blog-article .hljs-class .hljs-title,
+.blog-article .hljs-type {
   @apply text-yellow-300;
 }
+
+/* Table styling */
+
+.blog-article table {
+  @apply w-full border-collapse my-6 text-sm;
+}
+
+
+.blog-article th {
+  @apply text-left font-semibold py-3 px-4 border-b;
+  background: oklch(from var(--color-muted) l c h / 0.2);
+  border-bottom-color: oklch(from var(--color-muted) l c h / 0.1);
+}
+
+.blog-article td {
+  @apply py-3 px-4 border-b;
+  border-bottom-color: oklch(from var(--color-muted) l c h / 0.1);
+}
+
+.blog-article tbody tr:hover {
+  @apply bg-gray-50 dark:bg-gray-900/30;
+  background-color:  oklch(from var(--color-muted) l c h / 0.1);;
+}
+
+.blog-article tbody tr:last-child td {
+  @apply border-b-0;
+}
+

@@ -1,18 +1,13 @@
-import createMDX from "@next/mdx";
-import rehypeHighlight from "rehype-highlight";
-import remarkGfm from "remark-gfm";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.mdx$/,
+      type: "asset/source",
+    });
+    return config;
+  },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeHighlight],
-  },
-});
-
-// Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default nextConfig;
