@@ -2,6 +2,7 @@ import { MDXComponents as TMDXComponents } from "mdx/types";
 import clsx from "@/util/clsx";
 
 import Increment from "./increment";
+import { CodeRenderer } from "./code-renderer";
 
 export const MDXComponents: TMDXComponents = {
   img: ({ className, alt, ...rest }) => (
@@ -18,4 +19,5 @@ export const MDXComponents: TMDXComponents = {
     </span>
   ),
   Increment,
+  pre: CodeRenderer,
 };

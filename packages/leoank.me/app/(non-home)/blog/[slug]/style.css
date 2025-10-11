@@ -40,71 +40,6 @@
   white-space: pre;  
 }
 
-.blog-article code {
-  display: inline-block;
-  min-width: 100%;      
-}
-
-/* Code */
-/* Comments */
-.blog-article .hljs-comment,
-.blog-article .hljs-quote {
-  @apply text-gray-500 italic;
-}
-
-.blog-article .hljs-keyword {
-  @apply text-red-400;
-}
-
-.blog-article .hljs-title.function_,
-.hljs-title.class_ {
-  @apply text-amber-500;
-}
-
-
-/* Keywords (if, return, async) */
-.blog-article .hljs-selector-tag,
-.blog-article .hljs-literal,
-.blog-article .hljs-title,
-.blog-article .hljs-section {
-  @apply text-purple-400 font-semibold;
-}
-
-/* Strings */
-.blog-article .hljs-string,
-.blog-article .hljs-doctag {
-  @apply text-blue-300;
-}
-
-/* Numbers */
-.blog-article .hljs-number {
-  @apply text-green-600;
-}
-
-/* Functions */
-.blog-article .hljs-function .hljs-title,
-.blog-article .hljs-built_in {
-  @apply text-blue-400;
-}
-
-/* Properties / attributes */
-.blog-article .hljs-attr,
-.blog-article .hljs-attribute {
-  @apply text-sky-400;
-}
-
-/* Variables */
-.blog-article .hljs-variable,
-.blog-article .hljs-template-variable {
-  @apply text-red-400;
-}
-
-/* Class & Types */
-.blog-article .hljs-class .hljs-title,
-.blog-article .hljs-type {
-  @apply text-yellow-300;
-}
-
 /* Table styling */
 
 .blog-article table {
@@ -124,7 +59,7 @@
 }
 
 .blog-article tbody tr:hover {
-  @apply bg-gray-50 dark:bg-gray-900/30;
+  @apply bg-gray-50;
   background-color:  oklch(from var(--color-muted) l c h / 0.1);;
 }
 
