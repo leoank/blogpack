@@ -26,6 +26,7 @@ export default async function BlogPage() {
                 {blog.frontmatter.thumbnailURL ? (
                   <img
                     src={blog.frontmatter.thumbnailURL}
+                    alt={blog.frontmatter.summary}
                     className="w-full h-full object-contain rounded-md"
                   />
                 ) : (

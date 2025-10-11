@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-  ORCIDIcon,
-  TIconProps,
-} from "../icons";
+import { GithubIcon, MailIcon, ORCIDIcon, TIconProps } from "../icons";
 
 export type TSocialLink = {
   id: string;

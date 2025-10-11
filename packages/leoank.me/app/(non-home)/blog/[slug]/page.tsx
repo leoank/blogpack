@@ -17,7 +17,7 @@ export default async function BlogPost(props: BlogPostProps) {
     const { content, frontmatter } = await getBlogPostBySlug(slug);
 
     return <Article content={content} frontmatter={frontmatter} />;
-  } catch (error) {
+  } catch {
     return <div>Blog not found!</div>;
   }
 }
