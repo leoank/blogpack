@@ -112,7 +112,7 @@
 }
 
 
-.blog-article th {
+.blog-article thead th {
   @apply text-left font-semibold py-3 px-4 border-b;
   background: oklch(from var(--color-muted) l c h / 0.2);
   border-bottom-color: oklch(from var(--color-muted) l c h / 0.1);
