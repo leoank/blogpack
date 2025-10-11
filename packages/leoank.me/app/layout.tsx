@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Mono } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/components/footer";
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
