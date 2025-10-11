@@ -75,7 +75,8 @@ export default async function BlogPost(props: BlogPostProps) {
         />
       </article>
     );
-  } catch {
+  } catch (error) {
+    console.log("Error", error);
     return <div>Blog not found!</div>;
   }
 }

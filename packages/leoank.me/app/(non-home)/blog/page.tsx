@@ -4,9 +4,14 @@ import { PlaceholderImageThreeShapes } from "@/components/icons";
 import { getAllBlogPosts } from "./utils.server";
 
 export default async function BlogPage() {
-  const { blogs } = getAllBlogPosts();
+  let blogs = [] as string[];
+  try {
+    const { blogs: fromServer } = getAllBlogPosts();
+    blogs = fromServer;
+  } catch (error) {
+    console.log("Error", error);
+  }
 
-  console.log("Blogs", blogs);
   return (
     <div>
       <h1 className="text-4xl">Blogs</h1>
