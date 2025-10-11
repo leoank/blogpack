@@ -11,6 +11,7 @@ export type TCodeRendererProps = {
 };
 
 function parseMeta(meta?: string | null) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const props = {} as Record<string, any>;
   const regex = /(\w+)(?:=\{([^}]+)\})?/g;
 
@@ -20,11 +21,12 @@ function parseMeta(meta?: string | null) {
 
   let match;
   while ((match = regex.exec(meta)) !== null) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, key, value] = match;
     if (value !== undefined) {
-      props[key] = JSON.parse(value); // safe for arrays/numbers/strings
+      props[key] = JSON.parse(value);
     } else {
-      props[key] = true; // boolean flag
+      props[key] = true;
     }
   }
   return props;
@@ -38,7 +40,7 @@ export function CodeRenderer(props: TCodeRendererProps) {
 
   const copyCode = useCallback(() => {
     copyToClipboard(children);
-  }, []);
+  }, [children]);
 
   return (
     <CodeBlock

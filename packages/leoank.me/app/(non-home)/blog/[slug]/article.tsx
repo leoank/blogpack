@@ -24,11 +24,9 @@ export function Article(props: TArticleProps) {
         renderNode={(node) => {
           if (node.type === "code") {
             return (
-              <CodeRenderer
-                language={node.lang || "python"}
-                children={node.value}
-                meta={node.meta}
-              />
+              <CodeRenderer language={node.lang || "python"} meta={node.meta}>
+                {node.value}
+              </CodeRenderer>
             );
           }
         }}
