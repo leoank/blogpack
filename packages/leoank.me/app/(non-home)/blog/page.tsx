@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { posts } from "./data";
 import { BLOG } from "@/constants/routes";
 import { PlaceholderImageThreeShapes } from "@/components/icons";
+import { getAllBlogPosts } from "./utils.server";
+
 export default async function BlogPage() {
+  const { blogs } = getAllBlogPosts();
+
+  console.log("Blogs", blogs);
   return (
     <div>
       <h1 className="text-4xl">Blogs</h1>
@@ -13,30 +17,33 @@ export default async function BlogPage() {
       </p>
 
       <ul className="pt-10 pb-4">
-        {posts.map((post) => (
-          <li
-            key={post.id}
-            className="p-4 mb-8 border-b rounded border-b-muted/20 hover:bg-gray-900"
-          >
-            <Link href={`${BLOG}/${post.slug}`} className="flex">
-              <div className="w-32 shrink-0 flex items-center justify-center">
-                {post.thumbnail ? (
-                  <img
-                    src={post.thumbnail}
-                    className="w-full h-full object-cover rounded-md"
-                  />
-                ) : (
-                  <PlaceholderImageThreeShapes className="size-28 text-muted" />
-                )}
-              </div>
-              <div className="pl-8">
-                <h3 className="font-bold text-2xl leading-relaxed">
-                  {post.title}
-                </h3>
-                <p className="text-muted text-sm">{post.summary}</p>
-              </div>
-            </Link>
-          </li>
+        {blogs.map((blog) => (
+          <Link key={blog} href={`${BLOG}/${blog}`}>
+            {blog}
+          </Link>
+          // <li
+          //   key={post.id}
+          //   className="p-4 mb-8 border-b rounded border-b-muted/20 hover:bg-gray-900"
+          // >
+          //   <Link href={`${BLOG}/${post.slug}`} className="flex">
+          //     <div className="w-32 shrink-0 flex items-center justify-center">
+          //       {post.thumbnail ? (
+          //         <img
+          //           src={post.thumbnail}
+          //           className="w-full h-full object-cover rounded-md"
+          //         />
+          //       ) : (
+          //         <PlaceholderImageThreeShapes className="size-28 text-muted" />
+          //       )}
+          //     </div>
+          //     <div className="pl-8">
+          //       <h3 className="font-bold text-2xl leading-relaxed">
+          //         {post.title}
+          //       </h3>
+          //       <p className="text-muted text-sm">{post.summary}</p>
+          //     </div>
+          //   </Link>
+          // </li>
         ))}
       </ul>
     </div>
