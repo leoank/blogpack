@@ -1,8 +1,9 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { CodeBlock } from "react-code-block";
 import { useCopyToClipboard } from "react-use";
 import clsx from "@/util/clsx";
+import { ClipboardCheckIcon, ClipboardIcon } from "@/components/icons";
 
 export type TCodeRendererProps = {
   children: string;
@@ -37,9 +38,14 @@ export function CodeRenderer(props: TCodeRendererProps) {
   const { lines = [], words = [], showLineNumbers = false } = parseMeta(meta);
 
   const [state, copyToClipboard] = useCopyToClipboard();
+  const [hasCopied, setHasCopied] = useState(false);
 
   const copyCode = useCallback(() => {
     copyToClipboard(children);
+    setHasCopied(true);
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 5000);
   }, [children]);
 
   return (
@@ -78,10 +84,18 @@ export function CodeRenderer(props: TCodeRendererProps) {
               </CodeBlock.Token>
             </CodeBlock.LineContent>
             <button
-              className="bg-foreground shadow-2xl text-background rounded-full px-3.5 py-1.5 absolute top-2 right-2 text-sm font-semibold"
+              className="bg-background/30 shadow-2xl text-foreground rounded-full px-3.5 py-1.5 absolute top-2 right-2 text-sm font-semibold"
               onClick={copyCode}
             >
-              {state.value ? "Copied!" : "Copy code"}
+              {state.value && hasCopied ? (
+                <span className="flex items-center">
+                  <ClipboardCheckIcon className="stroke-white size-4" /> Copied!
+                </span>
+              ) : (
+                <span className="flex items-center">
+                  <ClipboardIcon className="stroke-white size-4" /> Copy
+                </span>
+              )}
             </button>
           </div>
         )}
