@@ -37,8 +37,19 @@
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: pre;  
+  white-space: pre;
+  position: relative;
 }
+
+.blog-article pre.has-linenumber {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.blog-article pre .highlighted {
+  background-color: oklch(from var(--color-muted) l c h / 0.2);
+}
+
 
 /* Table styling */
 

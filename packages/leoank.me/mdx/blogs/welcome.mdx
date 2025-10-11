@@ -51,7 +51,7 @@ Okay, so we need to fuzzify our crisp input of 7/10 on Food Taste, right? The st
 3. Now if an input falls under two linguistic variables simultaneously as shown in the diagram below, then we just take both the Membership Degrees corresponding with each of the linguistic variables. It will be written as:
 
 
-```python
+```python lines={[2]} showLineNumbers words={["torchmm"]}
 A = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
 B = torch.randn(2048, 2048, device='cuda', dtype=torch.bfloat16)
 ref = torch.mm(A, B)

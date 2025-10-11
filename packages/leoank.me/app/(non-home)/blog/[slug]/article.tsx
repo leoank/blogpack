@@ -1,10 +1,9 @@
 import { SafeMdxRenderer } from "safe-mdx";
 import { mdxParse } from "safe-mdx/parse";
 import { TBlogFrontMatter } from "../utils";
-// import remarkGfm from "remark-gfm";
-// import rehypeHighlight from "rehype-highlight";
 import { MDXComponents } from "@/mdx/_components/mdx-components";
 import "./style.css";
+import { CodeRenderer } from "@/app/(non-home)/blog/[slug]/code-renderer";
 
 export type TArticleProps = {
   frontmatter: TBlogFrontMatter;
@@ -22,6 +21,17 @@ export function Article(props: TArticleProps) {
         markdown={content}
         mdast={ast}
         components={MDXComponents}
+        renderNode={(node) => {
+          if (node.type === "code") {
+            return (
+              <CodeRenderer
+                language={node.lang || "python"}
+                children={node.value}
+                meta={node.meta}
+              />
+            );
+          }
+        }}
       />
     </article>
   );
