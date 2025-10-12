@@ -84,7 +84,7 @@ export function CodeRenderer(props: TCodeRendererProps) {
               </CodeBlock.Token>
             </CodeBlock.LineContent>
             <button
-              className="bg-background/30 shadow-2xl text-foreground rounded-full px-3.5 py-1.5 absolute top-2 right-2 text-sm font-semibold"
+              className="bg-background/30 text-foreground rounded-full px-3.5 py-1.5 absolute top-2 right-2 text-sm font-semibold"
               onClick={copyCode}
             >
               {state.value && hasCopied ? (
