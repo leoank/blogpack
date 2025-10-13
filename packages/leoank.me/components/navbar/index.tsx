@@ -14,11 +14,12 @@ const items: TNavbarItem[] = [
     href: PUBLICATION,
     text: "Publication",
   },
-  {
-    id: "experience",
-    href: EXPERIENCE,
-    text: "Experience",
-  },
+  // Uncomment when we have experience page.
+  // {
+  //   id: "experience",
+  //   href: EXPERIENCE,
+  //   text: "Experience",
+  // },
   {
     id: "blog",
     href: BLOG,
