@@ -1,7 +1,8 @@
 import { MDXComponents as TMDXComponents } from "mdx/types";
 import clsx from "@/util/clsx";
 
-import Increment from "./increment";
+import { References } from "./references";
+import { Reference } from "./reference";
 
 export const MDXComponents: TMDXComponents = {
   img: ({ className, alt, ...rest }) => (
@@ -17,5 +18,6 @@ export const MDXComponents: TMDXComponents = {
       <span className="text-xs">{alt}</span>
     </span>
   ),
-  Increment,
+  References,
+  Reference,
 };

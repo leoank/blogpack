@@ -2,13 +2,20 @@
 title: "Welcome 2 blog."
 summary: "This is the second welcome blog. This is to test whether the blog page is work."
 date: "2025-10-10"
+references:
+  - name: cell-painting
+    text: "An open resource for image-based profiling. Authors: Erin Weisbart, [Ankur Kumar](https://orcid.org/0000-0002-7686-7335), John Arevalo."
+  - name: automated-ml
+    text: "First fully-automated AI/ML virtual screening cascade implemented at a drug discovery centre in Africa. [Paper](https://www.nature.com/articles/s41467-023-41512-2)."
 ---
 
-import Increment from "../_components/increment"
+import { References } from "../_components/references"
+import { Reference } from "../_components/reference"
 
-![Period Table](https://datacite.org/wp-content/uploads/2021/11/periodic_table.jpg)
 
-<Increment />
+
+
+This is an important reference to cell painting<Reference name="cell-painting" />. There is also an interesting reference to ai. It is automated ai<Reference name="automated-ml" />
 
 ```js lines={[2]} showLineNumbers words={["name"]}
 function sayHello(name) {
@@ -16,7 +23,10 @@ function sayHello(name) {
 }
 ```
 
-This is a line with reference
+
+
+
+This is a line with reference <Ref>This is my first reference.</Ref>
 
 
 |  Z | Symbol | Name         | Atomic Mass (u) |
@@ -31,6 +41,10 @@ This is a line with reference
 |  8 |    O   | Oxygen       |      15.999     |
 
 
+Again referencing the same cell painting page<Reference name="cell-painting" />.
+
+
+<References />
 
 ## Citation 
 ```wikitext
@@ -43,3 +57,4 @@ This is a line with reference
   doi = {123456}
 }
 ```
+
