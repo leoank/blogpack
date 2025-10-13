@@ -2,18 +2,19 @@ import Link from "next/link";
 import { BLOG } from "@/constants/routes";
 import { PlaceholderImageThreeShapes } from "@/components/icons";
 import { getAllBlogPosts } from "./utils";
+import { PageDescription, PageHeading } from "@/components/typography";
 
 export default async function BlogPage() {
   const blogs = await getAllBlogPosts();
 
   return (
     <div>
-      <h1 className="text-4xl">Blogs</h1>
-      <p className="mt-2 text-small text-muted">
+      <PageHeading>Blog</PageHeading>
+      <PageDescription>
         Here you&apos;ll find a mix of thoughts and stories — lessons I&apos;ve
         learned through experience, experiments I&apos;ve tried, ideas I&apos;ve
         put on paper, and a few deep dives into tech.
-      </p>
+      </PageDescription>
 
       <ul className="pt-10 pb-4">
         {blogs.map((blog) => (
