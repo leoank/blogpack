@@ -10,6 +10,7 @@ import {
   HoverCardContent,
 } from "@radix-ui/react-hover-card";
 import ReferenceText from "./reference-text";
+import { useCallback, useEffect, useState } from "react";
 
 export type TReference = {
   name: string;
@@ -18,9 +19,27 @@ export type TReference = {
 export function Reference(props: TReference) {
   const { name } = props;
 
+  const [isSmallWidthDevice, setIsSmallWidthDevice] = useState(false);
+
   const {
     frontmatter: { references },
   } = useMDXContext();
+
+  const handleResize = useCallback(() => {
+    if (!window) return;
+
+    setIsSmallWidthDevice(window.innerWidth < 1200);
+  }, []);
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
 
   if (!references) {
     throw new Error("No reference is defined.");
@@ -37,6 +56,20 @@ export function Reference(props: TReference) {
   }
 
   const reference = references[idx];
+
+  if (isSmallWidthDevice) {
+    return (
+      <span>
+        <sup className="px-0.5">[{idx + 1}]</sup>
+        <br />
+        <span className="block text-muted text-sm p-2">
+          <sup>[{idx + 1}]</sup>
+          <ReferenceText text={reference.text} />
+        </span>
+        <br />
+      </span>
+    );
+  }
 
   return (
     <HoverCard>

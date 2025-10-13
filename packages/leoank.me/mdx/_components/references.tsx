@@ -12,7 +12,6 @@ export function References() {
   const [idForAnimatePluse, setIDForAnimatePulse] = useState("");
 
   const updateOnHashChange = useCallback((event: HashChangeEvent) => {
-    console.log("Event", event);
     const id = event.newURL.split("#")[1];
 
     if (!id) {
