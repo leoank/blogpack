@@ -13,7 +13,7 @@ export default function HomeLayout(props: PropsWithChildren) {
         wrapperProps={{ className: "px-3 flex flex-col" }}
       >
         <main className="flex-1 flex flex-col">{children}</main>
-        <Navbar className="mt-auto hidden sm:flex" doesLogoHaveName={false} />
+        <Navbar className="mt-auto flex sm:flex" doesLogoHaveName={false} />
       </ContainerWithWrapper>
       <Footer />
     </>

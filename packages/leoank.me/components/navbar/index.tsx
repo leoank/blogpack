@@ -1,7 +1,7 @@
 import clsx from "@/util/clsx";
 import { LogoWithName } from "../logo-with-name";
 import { NavbarItem, TNavbarItem } from "./item";
-import { BLOG, EXPERIENCE, PUBLICATION } from "@/constants/routes";
+import { BLOG, PUBLICATION } from "@/constants/routes";
 
 export type TNavbarProps = {
   className?: string;
@@ -33,21 +33,21 @@ export function Navbar(props: TNavbarProps) {
   return (
     <nav
       className={clsx(
-        "rounded-lg overflow-hidden justify-between flex border-gray-800 sm:border",
+        "rounded-lg overflow-hidden justify-between flex border-gray-800 border sm:border",
         className
       )}
     >
       <LogoWithName
-        className="sm:pl-4"
-        imageProps={{ className: "size-8 lg:size-8" }}
+        className="pl-2 sm:pl-4"
+        imageProps={{ className: "size-6 lg:size-8" }}
         h1Props={{
           className: clsx(
-            "hidden text-xl lg:text-xl",
+            "hidden text-lg lg:text-xl",
             doesLogoHaveName && "block"
           ),
         }}
       />
-      <div className="hidden justify-end sm:flex">
+      <div className="flex justify-end sm:flex">
         {items.map((item) => (
           <NavbarItem key={item.id} item={item} />
         ))}
