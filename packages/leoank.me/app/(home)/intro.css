@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.intro-para-space {
+  margin-bottom: 20px;
+}
+
+.intro-salutation {
+  @apply text-2xl leading-normal font-bold my-3;
+}
